@@ -1,0 +1,12 @@
+<h1>We're surveying</h1>
+
+<h2><%= @current_question.content %></h2>
+<form id="question" action="/questions" method="post">
+  <% @current_options.each do |option| %>
+    <input type="radio" name="answer" data-answer="<%= option.answer%>" data-id='<%= @survey.id %>' data-counter='<%= @counter %>'><span><%= option.answer %></span><br>
+  <% end %><br>
+  <input type="submit" value="Submit!">
+</form>
+
+
+

@@ -19,11 +19,12 @@ User.create(email: "admin", password: "password")
       survey_id: survey.id,
       content: Faker::Company.bs
     )
-
-    Option.create(
-      question_id: question.id,
-      answer: Faker::Company.catch_phrase
-    )
+    3.times do
+      Option.create(
+        question_id: question.id,
+        answer: Faker::Company.catch_phrase
+      )
+    end
   end
 
   take_survey = Survey.all.sample
