@@ -1,0 +1,6 @@
+<%@questions.each do |question|%>
+  <%=question.content%>
+  <%@questions.options.each do |option|%>
+    <%=option.content%>
+  <%end%>
+<%end%>
