@@ -6,6 +6,8 @@ before '/user/*' do
 end
 
 get '/user/home' do
+  @surveys = Survey.all.sample(10)
+  @authored_surveys = current_user.authored_surveys
 	erb :user_home
 end
 
