@@ -1,22 +1,28 @@
-html{
+/*html{
 	height: 100%;
 }
 
 body{
 	height: 100%;
+}*/
+.nav li{
+  list-style: none;
+  display: inline;
 }
-
-
 .container {
-  margin: auto;
-	margin-top: 2%;
-	margin-bottom: 2%;
-  width: 90%;
-  height: 94%;
-  border: 1px solid black;
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+th {
+  text-align: left;
 }
 
-.login_form{
+
+
+
+/*.login_form{
 	position: relative;
 
 	padding-left: 35%;
@@ -27,18 +33,18 @@ body{
 	padding-left: 35%;
 	margin-bottom: 10%;
 
-}
+}*/
 
-#sign-in {
+/*#sign-in {
 	margin: auto;
 	border: 2px solid black;
 	width: 70%;
 	margin-top: 6%;
 	margin-bottom: 2%;
 
-}
+}*/
 
-#errors{
+/*#errors{
 	font-size: 1em;
 	color: red;
 	margin-top: 10px;
@@ -49,9 +55,7 @@ a {
 	text-decoration: none;
 }
 
-.nav {
-	background-color: black;
-}
+
 
 .nav ul {
 	list-style-type: none;
@@ -70,4 +74,4 @@ a {
 
 .nav a:hover {
 	color: yellow;
-}
+}*/
