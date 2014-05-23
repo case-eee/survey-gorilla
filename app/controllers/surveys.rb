@@ -12,7 +12,7 @@ end
 post '/surveys' do  # Step2.) Create
   survey = Survey.create(user_id: current_user.id, title: params[:title])
 
-  redirect '/surveys/#{survey.id}/edit'
+  redirect "/surveys/#{survey.id}/edit"
 end
 
 get '/surveys/:id' do  # Show specific
@@ -27,7 +27,7 @@ post '/surveys/:id' do
   Question.create(survey_id: @survey.id, content: params[:content])
   if params[:complete]
     redirect "/surveys/#{@survey.id}"
-  elsif params[:add_question]
+  else params[:add_question]
     redirect "/surveys/#{@survey.id}/edit"
   end
 end

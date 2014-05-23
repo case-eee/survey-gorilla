@@ -13,10 +13,7 @@ $(function() {
       console.log(nextQuestion);
 
       var content = nextQuestion.current_question.question.content
-      console.log(content);
-
       var options = nextQuestion.current_options;
-      console.log(options);
 
       $('h2').html(content);
 
@@ -27,13 +24,6 @@ $(function() {
         console.log(typeof answerOpts);
         answerOpts.eq(index).html(eachAnswer);
       });
-
-
     });
   });
 });
-
-//target h2, replace it with question content
-//grab the current options array, iterate through it and replace each option.
-
-// {"current_question":{"question":{"content":"reintermediate plug-and-play applications","created_at":"2014-05-23T15:30:22-05:00","id":114,"survey_id":12,"updated_at":"2014-05-23T15:30:22-05:00"}},"current_options":[{"option":{"answer":"Focused uniform budgetary management","created_at":"2014-05-23T15:30:22-05:00","id":340,"question_id":114,"updated_at":"2014-05-23T15:30:22-05:00"}},{"option":{"answer":"Progressive 6th generation success","created_at":"2014-05-23T15:30:22-05:00","id":341,"question_id":114,"updated_at":"2014-05-23T15:30:22-05:00"}},{"option":{"answer":"Business-focused coherent hardware","created_at":"2014-05-23T15:30:22-05:00","id":342,"question_id":114,"updated_at":"2014-05-23T15:30:22-05:00"}}]}
