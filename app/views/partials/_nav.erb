@@ -1,9 +1,9 @@
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="#">Login</a></li>
-    <li><a href="#">Logout</a></li>
-    <li><a href="#">Profile</a></li>
-    <% #if user logged in %>
-      <!--<li><a href="/logout">Logout</a></li>-->
-    <% #end %>
-  </ul>
+<ul>
+  <% if !current_user %>
+    <li><a href="/">Login</a></li>
+  <% end %>
+  <% if current_user %>
+    <li><a href="/user/home">Home</a></li>
+    <li><a href="/user/logout">Logout</a></li>
+  <% end %>
+</ul>
