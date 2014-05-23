@@ -1,3 +1,15 @@
 <h1>User home page</h1>
+<p> Your Surveys </p>
+<% @authored_surveys.each do |survey|%>
+  <ul>
+    <li><a href="#"><%= survey.title %></a> <a href="#">Edit</a><a href="#">View Results</a></li>
+  </ul>
+<%end%>
 
-<button><a href="/user/logout">Logout the session and return to root.</a></button>
+<p> Take a survey </p>
+<% @surveys.each do |survey| %>
+  <ul>
+    <li><a href="surveys/<%=survey.id%>/questions"><%= survey.title %></a></li>
+  </ul>
+<%end%>
+
