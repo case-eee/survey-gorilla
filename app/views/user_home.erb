@@ -3,7 +3,7 @@
 <p> Your Surveys </p>
   <% @authored_surveys.each do |survey|%>
     <ul>
-      <li><a href="#"><%= survey.title %></a><br> <a href="/surveys/<%=survey.id%>/edit">Edit</a> <a href="/surveys/<%=survey.id%>/results">View Results</a></li>
+      <li><a href="/surveys/<%=survey.id%>"><%= survey.title %></a><br> <a href="/surveys/<%=survey.id%>/edit">Edit</a> <a href="/surveys/<%=survey.id%>/results">View Results</a></li>
     </ul>
   <%end%>
 </div>
