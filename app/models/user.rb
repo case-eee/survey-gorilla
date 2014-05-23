@@ -2,6 +2,13 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
+  has_many :surveys
+
+  has_many :surveytakers
+  has_many :surveys, through: :surveytakers
+
+  has_many :responses
+
   include BCrypt
 
   def password
