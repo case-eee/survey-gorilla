@@ -2,10 +2,10 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
-  has_many :surveys
+  has_many :authored_surveys, class_name: "Survey"
 
   has_many :surveytakers
-  has_many :surveys, through: :surveytakers
+  has_many :taken_surveys, through: :surveytakers, source: :survey
 
   has_many :responses
 
