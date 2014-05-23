@@ -5,5 +5,6 @@ class CreateSurveytakers < ActiveRecord::Migration
       t.integer :survey_id
 
       t.timestamps
+    end
   end
 end
