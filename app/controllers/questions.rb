@@ -16,23 +16,23 @@ end
 
 get '/surveys/:id/questions/:counter' do  # Show specific
   @survey = Survey.find(params[:id])
+  puts params[:counter]
 
-  if session[:counter] >= @survey.questions.length
-    erb :user_home
-  end
-
+if session[:counter] < @survey.questions.length
   @counter = session[:counter]
   puts "the counter is #{@counter}."
   @current_question = @survey.questions[@counter]
   @current_options = @current_question.options
   session[:counter] += 1
+end
 
   if request.xhr?
-    option = Option.find_by_answer(params[:answer])
-    Response.create(user_id: session[:user_id], option_id: option.id)
-    { :current_question => @current_question, :current_options => @current_options }.to_json
-
+    session[:counter] < @survey.questions.length
+      option = Option.find_by_answer(params[:answer])
+      Response.create(user_id: session[:user_id], option_id: option.id)
+      { :survey_id => @survey.id, :total_questions => @survey.questions.length, :counter => @counter, :current_question => @current_question, :current_options => @current_options }.to_json
   else
+    puts "We are in the ELSE conditional"
     erb :question
   end
 end
