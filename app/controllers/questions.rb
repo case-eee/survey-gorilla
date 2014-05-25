@@ -15,6 +15,7 @@ end
 # end
 
 get '/surveys/:id/questions/:counter' do  # Show specific
+  p params
   @survey = Survey.find(params[:id])
   puts params[:counter]
 

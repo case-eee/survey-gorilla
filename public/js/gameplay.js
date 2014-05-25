@@ -1,16 +1,15 @@
 $(function() {
   $('#question').on('submit', function(event) {
     event.preventDefault();
-    console.log("Here");
     var data = $('form input').data();
+    console.log("This is our data we send on each AJAX request");
     console.log(data);
     var url = "/surveys/"+ data.id +"/questions/"+ data.counter;
-    console.log(url);
 
     $.get(url, data, function(response){
-      console.log(response);
-      console.log('RESPONSE');
-      console.log(response);
+      // console.log(response);
+      // console.log('RESPONSE');
+      // console.log(response);
       var nextQuestion = $.parseJSON(response);
       // console.log(nextQuestion);
       if (nextQuestion.counter !== null) {
@@ -23,10 +22,13 @@ $(function() {
         $('h2').html(content);
 
         _.each(options, function(element, index) {
+          console.log(element);
           var eachAnswer = element.option.answer;
-          var answerOpts = $('#question span')
-          console.log(answerOpts[0]);
-          console.log(typeof answerOpts);
+          var answerOpts = $('#question span');
+          var radioButtons = $('#question input');
+          radioButtons.eq(index).attr('data-answer', eachAnswer);
+          // console.log(answerOpts[0]);
+          // console.log(typeof answerOpts);
           answerOpts.eq(index).html(eachAnswer);
         });
       } else {
