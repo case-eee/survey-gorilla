@@ -38,7 +38,7 @@ User.create(email: "admin", password: "password")
     Response.create(
       user_id: user.id,
       question_id: question.id,
-      option_id: question.options.sample.idResp
+      option_id: question.options.sample.id
     )
   end
 end
