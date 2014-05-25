@@ -2,6 +2,9 @@ $(function() {
   $('#question').on('submit', function(event) {
     event.preventDefault();
     var data = $('form input').data();
+    // var extraData = $('#question').serialize();
+    // console.log("This is our additional serialized data:");
+    // console.log(extraData);
     console.log("This is our data we send on each AJAX request");
     console.log(data);
     var url = "/surveys/"+ data.id +"/questions/"+ data.counter;
