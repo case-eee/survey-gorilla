@@ -2,7 +2,12 @@
   <%=index+1%>. <%=question.content%><br>
   <ul>
   <% question.options.each do |option|%>
-    <li><%= option.answer %> <%= ((option.responses.length).to_f / (question.responses.length).to_f).round(2) * 100 %>%  </li>
+
+    <li><%= option.answer %>
+      <% if question.responses.length == 0 %> 0%
+      <% else %>
+        <%= ((option.responses.length).to_f / (question.responses.length).to_f).round(2) * 100 %>%  </li>
+      <% end %>
   <%end%>
 
   </ul>
