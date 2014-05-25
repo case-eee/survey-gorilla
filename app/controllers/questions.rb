@@ -29,7 +29,7 @@ end
   if request.xhr?
     session[:counter] < @survey.questions.length
       option = Option.find_by_answer(params[:answer])
-      Response.create(user_id: session[:user_id], option_id: option.id)
+      Response.create(user_id: session[:user_id], option_id: option.id, question_id: option.question_id)
       { :survey_id => @survey.id, :total_questions => @survey.questions.length, :counter => @counter, :current_question => @current_question, :current_options => @current_options }.to_json
   else
     puts "We are in the ELSE conditional"
