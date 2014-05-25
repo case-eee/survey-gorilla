@@ -1,5 +1,9 @@
-<%@questions.each do |question|%>
-  <% question.responses.each do |response|%>
-    <%=question.options.find(response.option_id).answer%><br>
+<% @questions.each_with_index do |question,index| %>
+  <%=index+1%>. <%=question.content%><br>
+  <ul>
+  <% question.options.each do |option|%>
+    <li><%= option.answer %> <%= ((option.responses.length).to_f / (question.options.length).to_f).round(2) * 100 %>%  </li>
   <%end%>
+
+  </ul>
 <%end%>
