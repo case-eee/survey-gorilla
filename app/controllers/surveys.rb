@@ -34,8 +34,12 @@ end
 
 get '/surveys/:id/edit' do  # Step1.) Edit
   @survey = Survey.find(params[:id])
-  @questions = @survey.questions
-
+  if @survey.questions.length > 0
+    @questions = @survey.questions
+  else
+    Question.create(survey_id: @survey.id)
+    @questions = @survey.questions
+  end
 
   erb :add_questions
 end
