@@ -31,7 +31,11 @@
 
 <form class="form" action="/surveys/<%=@survey.id%>" method="post">
   <label for="content">Question <%=@survey.questions.length + 1%>.</label><br>
-  <input id="content" type="text" name="answer" placeholder="Option <%=@survey.questions.length + 1%>">
-  <br><input type="submit" name:"complete" value="Save survey">
+  <input id="content" type="text" name="answer" placeholder="Option <%=@survey.questions.length + 1%>"><br>
   <input type="submit" name:"add_question" value="Add another question">
 </form>
+
+<form class="form" action="/surveys/<%=@survey.id%>>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <br><input type="submit" name:"edit" value="Delete Survey">
+  </form>
