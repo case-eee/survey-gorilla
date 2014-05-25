@@ -15,10 +15,14 @@ end
 # end
 
 get '/surveys/:id/questions/:counter' do  # Show specific
+  @survey = Survey.find(params[:id])
+
+  if session[:counter] >= @survey.questions.length
+    erb :user_home
+  end
 
   @counter = session[:counter]
   puts "the counter is #{@counter}."
-  @survey = Survey.find(params[:id])
   @current_question = @survey.questions[@counter]
   @current_options = @current_question.options
   session[:counter] += 1

@@ -9,11 +9,11 @@ $(function() {
 
     $.get(url, data, function(response){
       // console.log(response);
-      var nextQuestion = $.parseJSON(response);
-      console.log(nextQuestion);
+      // var nextQuestion = $.parseJSON(response);
+      // console.log(nextQuestion);
 
-      var content = nextQuestion.current_question.question.content
-      var options = nextQuestion.current_options;
+      var content = response.current_question.question.content
+      var options = response.current_options;
 
       $('h2').html(content);
 
@@ -24,6 +24,6 @@ $(function() {
         console.log(typeof answerOpts);
         answerOpts.eq(index).html(eachAnswer);
       });
-    });
+    }, "json");
   });
 });

@@ -1,0 +1,5 @@
+<%@questions.each do |question|%>
+  <% question.responses.each do |response|%>
+    <%=question.options.find(response.option_id).answer%><br>
+  <%end%>
+<%end%>

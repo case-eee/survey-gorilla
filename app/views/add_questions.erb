@@ -1,11 +1,24 @@
 <% @questions.each_with_index do |question,index|%>
 
   <form class="form" action="/surveys/<%=@survey.id%>/questions/<%= question.id%>" method="post">
-    <input type="hidden" value="_method" method="put">
+    <input type="hidden" name="_method" value="patch">
     <label for="content">Question <%=index + 1%>.</label><br>
     <input id="content" type="text" name="question[content]" value="<%=question.content%>">
     <br><input type="submit" name:"edit" value="Edit Question">
   </form>
+
+  <% question.options.each do |option| %>
+    <form class="form" action="/surveys/<%=@survey.id%>/options/<%= option.id%>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label for="content"></label><br>
+      <input id="content" type="text" name="options[answer]" value="<%= option.answer%>">
+      <br><input type="submit" name:"edit" value="Edit">
+    </form><br>
+
+
+  <%end%>
+
+
 
 <%end%>
 
