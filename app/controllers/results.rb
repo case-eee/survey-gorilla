@@ -1,7 +1,6 @@
 get '/surveys/:survey_id/results' do  # Show all
   @survey = Survey.find(params[:survey_id])
   @questions = Question.where(survey_id: @survey.id)
-
   erb :show_results
 end
 
