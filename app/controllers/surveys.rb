@@ -25,11 +25,9 @@ end
 post '/surveys/:id' do
   @survey = Survey.find(params[:id])
   Question.create(survey_id: @survey.id, content: params[:content])
-  if params[:complete]
-    redirect "/surveys/#{@survey.id}"
-  else params[:add_question]
-    redirect "/surveys/#{@survey.id}/edit"
-  end
+
+  redirect "/surveys/#{@survey.id}/edit"
+
 end
 
 get '/surveys/:id/edit' do  # Step1.) Edit
@@ -67,6 +65,10 @@ put '/surveys/:id' do  # Step2.) Edit
 end
 
 delete '/surveys/:id' do  # Delete
+  survey = Survey.find(params[:id])
+  survey.destroy
+
+  redirect '/user/home'
 
 end
 
