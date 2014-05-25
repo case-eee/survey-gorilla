@@ -35,11 +35,10 @@ User.create(email: "admin", password: "password")
   )
 
   take_survey.questions.each do |question|
-    question.options.each do |option|
-      Response.create(
-        user_id: user.id,
-        option_id: option.id
-      )
-    end
+    Response.create(
+      user_id: user.id,
+      question_id: question.id,
+      option_id: question.options.sample.idResp
+    )
   end
 end
